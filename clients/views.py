@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from clients.models import Clients
+
+app_name = 'clients'
+
+def index(request):
+    return render(request, 'clients/home.html')
