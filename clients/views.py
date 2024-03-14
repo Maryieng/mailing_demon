@@ -10,13 +10,13 @@ class ClientsView(TemplateView):       # вводная страница
 
 class ClientsCreateView(CreateView):     # Создание
     model = Clients
-    fields = ('first_name', 'last_name', 'client_email')
+    fields = ('name', 'client_email')
     success_url = reverse_lazy('clients:clients_list')
 
 
 class ClientsUpdateView(UpdateView):    # Редактирование
     model = Clients
-    fields = ('first_name', 'last_name', 'client_email')
+    fields = ('name', 'client_email')
     success_url = reverse_lazy('clients:clients_list')
 
 

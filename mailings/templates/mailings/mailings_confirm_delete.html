@@ -1,0 +1,21 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-12" style="margin: 250px;">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body-post ">
+                    <form method="post">
+                        {% csrf_token %}
+                        <p> Хотите удалить рассылку: "{{ object.name }}"? </p>
+                        <button Type="submit" class="btn btn-success" style="margin: 5px;"> Подтвердить </button>
+                        </form>
+                        </div>
+                        <a href="{% url 'mailings:mailings_list' %}" class="btn btn-sm btn-outline-secondary" style="margin: 5px;"> Вернуться назад </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+    <style>
+        .card-body form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body form input {
+    width: 100%;
+}
+
+.card-body form button {
+    width: 100%;
+    padding: 10px;
+}
+    </style>
+<div class="row">
+    <div class="col-12" style="margin: 250px;">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button Type="submit" class="btn btn-success">
+                            {% if object %}
+                            Изменить
+                            {% else %}
+                            Создать
+                            {% endif %} </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
