@@ -6,7 +6,7 @@ class Message(models.Model):
     body_letter = models.TextField(max_length=500, verbose_name='Тело письма')
 
     def __str__(self):
-        return f"Тема письма: {self.letter_subject}"
+        return f"{self.letter_subject}"
 
     class Meta:
         verbose_name = "Письмо"

@@ -13,7 +13,6 @@ class MailingsForm(ModelForm):     # настрока даты и времени
         widgets = {
             'start_time': DateTimeInput(attrs={'type': 'datetime-local'}),
             'end_time': DateTimeInput(attrs={'type': 'datetime-local'}),
-            'message': Textarea(attrs={'class': 'textarea'}),
         }
 
 class MailingsCreateView(CreateView):   # создание рассылки
