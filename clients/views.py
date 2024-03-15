@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, UpdateView, CreateView, TemplateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, TemplateView, DeleteView, DetailView
 
 from clients.models import Clients
 
@@ -27,3 +27,7 @@ class ClientsListView(ListView):      # страница со всеми кли�
 class ClientsDeleteView(DeleteView):      # контроллер для удаления
     model = Clients
     success_url = reverse_lazy('clients:clients_list')
+
+
+class StudentsDetailView(DetailView):      # страница каждого клиента
+    model = Clients

@@ -1,7 +1,7 @@
-from django.forms import ModelForm, DateTimeInput
+from django.forms import ModelForm, DateTimeInput, Textarea
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
 from mailings.models import Mailings
 
@@ -9,10 +9,11 @@ from mailings.models import Mailings
 class MailingsForm(ModelForm):     # настрока даты и времени через календарь
     class Meta:
         model = Mailings
-        fields = ('name', 'start_time', 'end_time', 'frequency', 'clients')
+        fields = ('name', 'start_time', 'end_time', 'frequency', 'clients', 'message')
         widgets = {
             'start_time': DateTimeInput(attrs={'type': 'datetime-local'}),
             'end_time': DateTimeInput(attrs={'type': 'datetime-local'}),
+            'message': Textarea(attrs={'class': 'textarea'}),
         }
 
 class MailingsCreateView(CreateView):   # создание рассылки
@@ -34,3 +35,7 @@ class MailingsUpdateView(UpdateView):    # Редактирование
     model = Mailings
     form_class = MailingsForm
     success_url = reverse_lazy('mailings:mailings_list')
+
+
+class MailingsDetailView(DetailView):      # Просмотр рассылки
+    model = Mailings

@@ -1,20 +1,5 @@
 {% extends 'clients/base.html' %}
 {% block content %}
-<style>
-    .card-body form {
-display: flex;
-flex-direction: column;
-}
-
-.card-body form input {
-width: 100%;
-}
-
-.card-body form button {
-width: 100%;
-padding: 10px;
-}
-</style>
 <div class="row">
     <div class="col-12" style="margin: 250px;">
         <div class="col-6">
@@ -28,8 +13,7 @@ padding: 10px;
                             Изменить
                             {% else %}
                             Создать
-                            {% endif %}
-                        </button>
+                            {% endif %} </button>
                     </form>
                 </div>
             </div>

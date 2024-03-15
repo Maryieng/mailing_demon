@@ -1,0 +1,11 @@
+<div class="col-6" style="margin: 200px;">
+    <div class="card px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="width: 24rem;">
+        <div class="card-body">
+            <p class="card-text"> ФИО: {{ object.name }}</p>
+            <p class="card-text"> Контактный email: {{ object.client_email }}</p>
+            <p class="card-text"> Комментарий: {{ object.comment }}</p>
+        </div>
+    </div>
+    <a href="{% url 'clients:clients_list' %}" class="btn btn-sm btn-outline-secondary" style="margin-right: 15px;">
+                            Вернуться назад к списку </a>
+</div>
