@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('clients.urls', namespace='clients')),
     path('mailings/', include('mailings.urls', namespace='mailings')),
     path('letters/', include('letters.urls', namespace='letters')),
+    path('reporting/', include('reporting.urls', namespace='reporting')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
