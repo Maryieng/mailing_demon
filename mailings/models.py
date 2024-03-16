@@ -12,6 +12,11 @@ class Mailings(models.Model):
         ('weekly', 'Раз в неделю'),
         ('monthly', 'Раз в месяц'),
     ]
+
+    CREATED = 'Создана'
+    STARTED = 'Запущена'
+    COMPLETED = 'Завершена'
+
     STATUS_CHOICES = [
         ('created', 'Создана'),
         ('started', 'Запущена'),
@@ -26,7 +31,7 @@ class Mailings(models.Model):
     message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", **NULLABLE)
 
     def __str__(self):
-        return f"Рассылка: {self.name}, Время: {self.start_time} | {self.end_time}, Статус: {self.status}, Периодичность: {self.frequency}"
+        return f"Рассылка: {self.name}, Периодичность: {self.frequency}"
 
     class Meta:
         verbose_name = "Рассылка"
