@@ -1,3 +1,5 @@
+{% extends 'clients/base.html' %}
+{% block content %}
 <div class="col-6" style="margin: 200px;">
     <div class="card px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="width: 24rem;">
         <div class="card-body">
@@ -9,3 +11,5 @@
     <a href="{% url 'clients:clients_list' %}" class="btn btn-sm btn-outline-secondary" style="margin-right: 15px;">
                             Вернуться назад к списку </a>
 </div>
+
+{% endblock %}

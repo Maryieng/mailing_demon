@@ -4,6 +4,6 @@ from letters.models import Message
 
 
 @admin.register(Message)
-class StudentAdmin(admin.ModelAdmin):
+class MessageAdmin(admin.ModelAdmin):
     list_display = ('letter_subject', 'body_letter')
     search_fields = ('letter_subject',)
