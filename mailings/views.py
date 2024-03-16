@@ -22,7 +22,7 @@ from mailings.services import send_mailings
 class MailingsForm(ModelForm):     # настрока даты и времени через календарь
     class Meta:
         model = Mailings
-        fields = ('name', 'start_time', 'end_time', 'frequency', 'clients', 'message')
+        fields = ('name', 'start_time', 'end_time', 'frequency', 'clients', 'message', 'status')
         widgets = {
             'start_time': DateTimeInput(attrs={'type': 'datetime-local'}),
             'end_time': DateTimeInput(attrs={'type': 'datetime-local'}),
