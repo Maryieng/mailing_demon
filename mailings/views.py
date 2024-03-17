@@ -37,6 +37,19 @@ class MailingsCreateView(CreateView):   # создание рассылки
 class MailingsListView(ListView):      # страница со всеми рассылками
     model = Mailings
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        mailings = context['object_list']
+        for mailing in mailings:
+            if mailing.frequency == "daily":
+                mailing.custom_frequency = "Раз в день"
+            elif mailing.frequency == "weekly":
+                mailing.custom_frequency = "Раз в неделю"
+            elif mailing.frequency == "monthly":
+                mailing.custom_frequency = "Раз в месяц"
+        context['object_list'] = mailings
+        return context
+
 
 class MailingsDeleteView(DeleteView):      # контроллер для удаления
     model = Mailings
@@ -58,9 +71,3 @@ class MailingsDetailView(DetailView):      # Просмотр рассылки
         mails = list(self.object.clients.all().values_list('client_email', flat=True))
         send_mailings(header, body, mails, self.object.name)
         return self.object
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['title'] = self.object
-    #     return context
-

@@ -13,7 +13,7 @@
                 <p class="card-text"> Имя: {{ object.name }} </p>
                 <p class="card-text"> Время старта рассылки: {{ object.start_time }} </p>
                 <p class="card-text"> Время окончания рассылки: {{ object.end_time }} </p>
-                <p class="card-text"> Периодичность рассылки: {{ object.frequency }} </p>
+                <p class="card-text"> Периодичность рассылки: {{ object.custom_frequency }} </p>
                 <p class="card-text"> Получатели рассылки: {% for client in object.clients.all %} {{ client.name }},
     {% endfor %} </p>
                 <p class="card-text"> Тема письма: {{ object.message }}</p>
