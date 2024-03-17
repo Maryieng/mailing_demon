@@ -14,7 +14,7 @@ from reporting.models import Reporting
 # def send_mailings(subject, message, email_list, mailings):
 def send_mailings():
     current_time = timezone.localtime(timezone.now())
-    mailings = Mailings.objects.all().filter(status=Mailings.CREATED)
+    mailings = Mailings.objects.all().exclude(status=Mailings.COMPLETED)
     for mailing in mailings:
         try:
             if mailing.end_time < current_time:
