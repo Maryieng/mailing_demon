@@ -5,5 +5,5 @@ class ReportingConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'reporting'
 
-    def ready(self):
-        scheduler.scheduler.start()
+    # def ready(self):
+    #     scheduler.scheduler.start()

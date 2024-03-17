@@ -50,10 +50,10 @@ class MailingsUpdateView(UpdateView):    # Редактирование
 
 class MailingsDetailView(DetailView):      # Просмотр рассылки
     model = Mailings
-    # def get_object(self, queryset=None):
-    #     self.object = super().get_object(queryset)
-    #     header = self.object.message.letter_subject
-    #     body = self.object.message.body_letter
-    #     mails = list(self.object.clients.all().values_list('client_email', flat=True))
-    #     send_mailings(header, body, mails, self.object.name)
-    #     return self.object
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        header = self.object.message.letter_subject
+        body = self.object.message.body_letter
+        mails = list(self.object.clients.all().values_list('client_email', flat=True))
+        send_mailings()
+        return self.object
