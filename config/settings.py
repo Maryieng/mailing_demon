@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'mailings',
     'letters',
     'reporting',
+    'django_apscheduler'
 ]
 
 MIDDLEWARE = [
@@ -112,3 +113,5 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'kass.o@yandex.ru'
 EMAIL_HOST_PASSWORD = os.getenv('MAIL')
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
