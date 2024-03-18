@@ -1,6 +1,6 @@
 from django.urls import path
 
-from clients.views import (ClientsCreateView, ClientsUpdateView, ClientsView, ClientsListView, ClientsDeleteView,
+from clients.views import (ClientsCreateView, ClientsDeleteView, ClientsListView, ClientsUpdateView, ClientsView,
                            StudentsDetailView)
 
 app_name = 'clients'

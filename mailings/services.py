@@ -1,14 +1,16 @@
 import smtplib
 from datetime import timedelta
-from dateutil.relativedelta import relativedelta
+
+from dateutil.relativedelta import relativedelta  # type: ignore
 from django.conf import settings
 from django.core.mail import send_mail
 from django.utils import timezone
+
 from mailings.models import Mailings
 from reporting.models import Reporting
 
 
-def send_mailings():
+def send_mailings() -> None:
     """ Takes objects of the mailing class excluding the completed status.
     overdue ones are transferred to the completed status. those that are
     still relevant go in a cycle to clients and send mailings taking into
@@ -41,5 +43,5 @@ def send_mailings():
                 mailing.status = Mailings.STARTED
                 mailing.start_time = next_mailing_time
                 mailing.save()
-        except smtplib.SMTPException as e:
+        except smtplib.SMTPException:
             Reporting.objects.create(status=False, mailings=mailings)

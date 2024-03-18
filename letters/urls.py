@@ -1,6 +1,6 @@
 from django.urls import path
 
-from letters.views import MessageCreateView, MessageListView, MessageDeleteView, MessageUpdateView, MessageDetailView
+from letters.views import MessageCreateView, MessageDeleteView, MessageDetailView, MessageListView, MessageUpdateView
 
 app_name = 'letters'
 

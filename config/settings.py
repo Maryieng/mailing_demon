@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+from typing import Any
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,7 +14,7 @@ SECRET_KEY = 'django-insecure-zy!75n%aiaf3x2_q1h^7%o3qoce#p&%!8r2d1=!su!^%xy0pum
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[Any] = []
 
 
 INSTALLED_APPS = [
@@ -60,7 +62,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -87,7 +88,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
@@ -95,7 +95,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 
 STATIC_URL = 'static/'

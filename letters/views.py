@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
 from letters.models import Message
 
@@ -32,5 +32,3 @@ class MessageUpdateView(UpdateView):
 class MessageDetailView(DetailView):
     """ View message page """
     model = Message
-
-

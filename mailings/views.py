@@ -1,6 +1,8 @@
-from django.forms import ModelForm, DateTimeInput, Textarea
+from typing import Any
+
+from django.forms import DateTimeInput, ModelForm
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
 from mailings.models import Mailings
 
@@ -15,6 +17,7 @@ class MailingsForm(ModelForm):
             'end_time': DateTimeInput(attrs={'type': 'datetime-local'}),
         }
 
+
 class MailingsCreateView(CreateView):
     """ Creating mailing settings page """
     model = Mailings
@@ -26,7 +29,7 @@ class MailingsListView(ListView):
     """ List of all mailing settings page """
     model = Mailings
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: Any) -> Any:
         """ Displaying the frequency of mailings in Russian """
         context = super().get_context_data(**kwargs)
         mailings = context['object_list']
@@ -39,7 +42,6 @@ class MailingsListView(ListView):
                 mailing.custom_frequency = "Раз в месяц"
         context['object_list'] = mailings
         return context
-
 
 
 class MailingsDeleteView(DeleteView):

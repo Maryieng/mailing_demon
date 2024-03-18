@@ -17,7 +17,6 @@ class Mailings(models.Model):
     STARTED = 'Запущена'
     COMPLETED = 'Завершена'
 
-
     name = models.CharField(max_length=100, verbose_name='Имя рассылки', **NULLABLE)
     start_time = models.DateTimeField(verbose_name='Время начала рассылки')
     end_time = models.DateTimeField(verbose_name='Время окончания рассылки')
@@ -26,7 +25,7 @@ class Mailings(models.Model):
     clients = models.ManyToManyField(Clients, verbose_name='Клиенты рассылки')
     message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", **NULLABLE)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Рассылка: {self.name}, Периодичность: {self.frequency}"
 
     class Meta:

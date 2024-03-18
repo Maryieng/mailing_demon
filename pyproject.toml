@@ -17,6 +17,7 @@ flake8 = "^7.0.0"
 isort = "^5.13.2"
 mypy = "^1.9.0"
 black = "^24.3.0"
+types-python-dateutil = "^2.9.0.20240316"
 
 
 [build-system]
@@ -28,6 +29,7 @@ build-backend = "poetry.core.masonry.api"
 disallow_untyped_defs = true
 no_implicit_optional = true
 warn_return_any = true
+ignore_missing_imports = true
 exclude = 'venv'
 
 
