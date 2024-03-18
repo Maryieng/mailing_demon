@@ -9,6 +9,11 @@ from reporting.models import Reporting
 
 
 def send_mailings():
+    """ Takes objects of the mailing class excluding the completed status.
+    overdue ones are transferred to the completed status. those that are
+    still relevant go in a cycle to clients and send mailings taking into
+    account the frequency. switches to running status. Based on frequency,
+    changes the start date """
     current_time = timezone.localtime(timezone.now())
     mailings = Mailings.objects.all().exclude(status=Mailings.COMPLETED)
     for mailing in mailings:

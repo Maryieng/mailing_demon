@@ -4,30 +4,36 @@ from django.views.generic import ListView, UpdateView, CreateView, TemplateView,
 from clients.models import Clients
 
 
-class ClientsView(TemplateView):       # вводная страница
+class ClientsView(TemplateView):
+    """ Introductory page """
     template_name = 'clients/home.html'
 
 
-class ClientsCreateView(CreateView):     # Создание
+class ClientsCreateView(CreateView):
+    """ Creating clients page """
     model = Clients
     fields = ('name', 'client_email')
     success_url = reverse_lazy('clients:clients_list')
 
 
-class ClientsUpdateView(UpdateView):    # Редактирование
+class ClientsUpdateView(UpdateView):
+    """ Editing a customer card page """
     model = Clients
     fields = ('name', 'client_email')
     success_url = reverse_lazy('clients:clients_list')
 
 
-class ClientsListView(ListView):      # страница со всеми клиентами
+class ClientsListView(ListView):
+    """ List of clients page """
     model = Clients
 
 
-class ClientsDeleteView(DeleteView):      # контроллер для удаления
+class ClientsDeleteView(DeleteView):
+    """ Deleting a customer card page """
     model = Clients
     success_url = reverse_lazy('clients:clients_list')
 
 
-class StudentsDetailView(DetailView):      # страница каждого клиента
+class StudentsDetailView(DetailView):
+    """ Card for each client page """
     model = Clients

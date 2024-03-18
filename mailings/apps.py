@@ -5,5 +5,6 @@ class MailingsConfig(AppConfig):
     name = 'mailings'
 
     def ready(self):
+        """ Starts the scheduler along with the server """
         from . import start_scheduler
         start_scheduler.start()
