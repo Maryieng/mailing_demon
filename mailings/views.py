@@ -1,8 +1,8 @@
 from django.forms import ModelForm, DateTimeInput, Textarea
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+
 from mailings.models import Mailings
-from mailings.services import send_mailings
 
 
 class MailingsForm(ModelForm):     # настрока даты и времени через календарь
@@ -37,6 +37,7 @@ class MailingsListView(ListView):      # страница со всеми рас
         return context
 
 
+
 class MailingsDeleteView(DeleteView):      # контроллер для удаления
     model = Mailings
     success_url = reverse_lazy('mailings:mailings_list')
@@ -50,10 +51,3 @@ class MailingsUpdateView(UpdateView):    # Редактирование
 
 class MailingsDetailView(DetailView):      # Просмотр рассылки
     model = Mailings
-    def get_object(self, queryset=None):
-        self.object = super().get_object(queryset)
-        header = self.object.message.letter_subject
-        body = self.object.message.body_letter
-        mails = list(self.object.clients.all().values_list('client_email', flat=True))
-        send_mailings()
-        return self.object
