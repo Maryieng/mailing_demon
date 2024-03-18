@@ -26,7 +26,7 @@ class Mailings(models.Model):
     message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", **NULLABLE)
 
     def __str__(self) -> str:
-        return f"Рассылка: {self.name}, Периодичность: {self.frequency}"
+        return f"Рассылка: {self.name}"
 
     class Meta:
         verbose_name = "Рассылка"
