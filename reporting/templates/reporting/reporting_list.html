@@ -1,18 +1,171 @@
 {% extends 'clients/base.html' %}
 
 {% block content %}
+<style>
 
-<div class="col-12" style="margin: 65px;">
-    <a class="btn btn-outline-primary" href="#"> Отчет произведенных рассылок </a>
+.double-border-button {
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 5px 20px;
+  position: relative;
+  border: 2px solid green;
+  color: green;
+  font-family: 'Montserrat', sans-serif;
+  transition: .4s;
+}
+.double-border-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: .4s;
+}
+.double-border-button:hover:after {
+  border-color: green;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+}
+   * {
+   margin: 0;
+   box-sizing: border-box;
+}
+.post-wrap {
+   max-width: 1120px;
+   margin: 5 auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+.post-item {
+   padding-top: 35px;
+}
+.post-item-wrap {
+   background: #F7F7F2;
+   position: relative;
+}
+.post-item-wrap:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 50%;
+   height: 100%;
+   z-index: -1;
+   background: #C9F2C7;
+   transform: rotate(1deg);
+   transform-origin: left bottom;
+   transition: .3s ease-in-out;
+}
+.post-item-wrap:hover:after {
+   top: 5px;
+   left: 5px;
+   transform: rotate(2deg);
+}
+.post-link {
+   text-decoration: none;
+   display: block;
+   padding: 30px;
+}
+.post-title {
+   color: #33261D;
+   margin-bottom: 15px;
+   transition: .3s ease-in-out;
+   padding: 10px;
+}
+.post-content {
+   padding-left: 10px;
+}
+.post-item-wrap:hover .post-title {
+   color: #C9F2C7;
+}
+.post-content {
+   color: #A69888;
+   font-size: 14px;
+}
+@media (min-width: 768px) {
+   .post-item {
+      flex-basis: 50%;
+      flex-shrink: 0;
+   }
+}
+@media (min-width: 960px) {
+   .post-item {
+      flex-basis: 33.333333333%;
+   }
+}
+.six {
+  background: #F7E2C7;
+  padding: 30px;
+  text-align: center;
+}
+.six h1 {
+  font-weight: normal;
+  font-family: 'Merriweather', serif;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+  color: #F7844E;
+  font-size: 40px;
+  padding: .4em 1em .55em;
+}
+.six h1:before,
+.six h1:after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: .1em;
+  background: #294200;
+}
+.six h1:before {
+  left: 0;
+  top: 0;
+}
+.six h1:after {
+  right: 0;
+  bottom: 0;
+}
+.six h1 span:before,
+.six h1 span:after {
+  content: "";
+  position: absolute;
+  width: .65em;
+  height: .65em;
+  border: .1em solid #294200;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.six h1 span:before {
+  top: -.55em;
+  left: -.325em;
+}
+.six h1 span:after {
+  bottom: -.55em;
+  right: -.325em;
+}
+@media (max-width: 600px) {
+  .six h1 {font-size: 2em;}
+}
+@media (max-width: 450px) {
+  .six h1 {font-size: 1.5em;}
+}
+</style>
+<div class="col-12" style="margin-top: 60px; margin-left: 20px;">
+    <div class="six"><h1><span> Отчет произведенных рассылок </span></h1></div>
 </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     {% for object in object_list %}
-    <div class="col-12">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <p class="card-text"> Время лога: {{ object.time_log }} </p>
-                <p class="card-text"> Статус попытки: {{ object.status_display }} </p>
-                <p class="card-text"> {{ object.mailings }} </p>
+     <div class="post-item">
+        <div class="post-item-wrap">
+                <h3 class="post-title"> Время лога: {{ object.time_log }} </h3>
+                <p class="post-content"> Статус попытки: {{ object.status_display }} </p>
+                <p class="post-content"> {{ object.mailings }} </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                     </div>

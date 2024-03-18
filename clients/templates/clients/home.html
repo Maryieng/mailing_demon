@@ -24,84 +24,114 @@
 
 
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
+.three {
+  background: #FCF2E5;
+  padding: 100px 40px;
+  text-align: center;
+  margin-top: 240px;
+}
+.three h1 {
+  font-family: 'Merriweather', serif;
+  position: relative;
+  color: #FCF2E5;
+  background: #90806A;
+  font-size: 2.5em;
+  font-weight: normal;
+  padding: 10px 40px;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+}
+.three h1:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: -15px;
+  background: #90806A;
+}
+.three h1:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 80%;
+  border-top: 10px solid #90806A;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25px;
+}
+@media (max-width: 500px) {
+  .three h1 {font-size: 1.8em;}
+}
+@media (max-width: 400px) {
+  .three h1 {
+    font-size: 1.5em;
+    padding: 10px 30px;
+  }
+}
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+.btn {
+   position: relative;
+   overflow: hidden;
+   z-index: 1;
+   padding: 10px 40px;
+   margin: 0 20px;
+   font-family: 'Montserrat Alternates', sans-serif;
+   font-weight: 600;
+   line-height: 30px;
+   color: white;
+   font-size: 15px;
+   text-transform: uppercase;
+   background: #90806A;
+   border-width: 0;
+   box-shadow: 5px 5px 0 #532831;
+   outline: none;
+   cursor: pointer;
+   transition: 1.5s;
+    margin-top: 40px;
+}
+.btn:before, .btn:after {
+   content: "";
+   position: absolute;
+   height: 200px;
+   left: -50%;
+   margin-top: -100px;
+   top: 50%;
+   width: 200px;
+   border-radius: 50%;
+   opacity: 0.3;
+   z-index: -1;
+   transform: scale(0);
+}
+.btn:before {
+   background: #ffeede;
+   transition: .8s ease-out;
+}
+.btn:after {
+   transition: .4s ease-in .3s;
+}
+.btn:hover {
+   color: #532831;
+}
+.btn:hover:before, .btn:hover:after {
+   opacity: 1;
+   transform: scale(4);
+}
     </style>
-
 
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-bg-dark">
+  <body class="text-center text-bg-dark">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -122,17 +152,15 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0">EMAIL</h3>
     </div>
   </header>
 
-  <main class="px-3">
-    <h1>Email‑рассылки</h1>
+  <div class="three"><h1>Email‑рассылки</h1></h1></div>
     <p class="lead">Увеличивайте прибыль с email‑рассылок с помощью мощного сочетания удобного конструктора, гибкой сегментации и сквозной аналитики</p>
     <p class="lead">
-      <a href="{% url 'clients:clients_list' %}" class="btn btn-lg btn-light fw-bold border-white bg-white">Попробовать</a>
+      <a href="{% url 'clients:clients_list' %}" class="btn">Попробовать</a>
     </p>
-  </main>
+    </div>
 
   <footer class="mt-auto text-white-50">
     <small class="d-block mb-3 text-muted">&copy; 2024</small>

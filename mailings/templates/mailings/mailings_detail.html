@@ -1,20 +1,100 @@
 {% extends 'clients/base.html' %}
 {% block content %}
-<div class="col-6" style="margin: 200px;">
-    <div class="card px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="width: 24rem;">
-        <div class="card-body">
-            <p class="card-text"> Название: {{ object.name }}</p>
-            <p class="card-text"> Время начала рассылки: {{ object.start_time }}</p>
-            <p class="card-text"> Время окончания рассылки: {{ object.end_time }}</p>
-            <p class="card-text"> Периодичность: {{ object.frequency }}</p>
-            <p class="card-text"> Клиенты рассылки: {% for client in object.clients.all %} {{ client.name }},
-    {% endfor %}</p>
-            <p class="card-text"> Сообщение: {{ object.message }}</p>
-            <p class="card-text"> Статус рассылки: {{ object.status }}</p>
-        </div>
-        <div class="col-6">
-            <a href="{% url 'mailings:mailings_list' %}" class="btn btn-sm btn-outline-secondary" style="margin: 5px;">
-                Вернуться назад </a>
+<style>
+    * {
+box-sizing: border-box;
+margin: 0;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+color: #606060;
+font-size: 14px;
+}
+.container {
+max-width: 960px;
+margin: 150px auto;
+padding: 0 15px;
+background: white;
+}
+.post {
+padding: 30px 0 15px;
+position: relative;
+}
+.post-image {
+margin-bottom: 60px;
+}
+.post-image img {
+width: 100%;
+}
+.post h1 {
+color: #222;
+font-weight: 500;
+margin-bottom: 15px;
+font-size: 1.2em;
+}
+p {
+line-height: 1.4;
+margin-bottom: 1em;
+text-align: justify;
+}
+@media (min-width: 768px) {
+body {
+    font-size: 16px;
+}
+.container {
+    padding: 0 45px;
+}
+.post-header {
+    margin-top: 20px;
+}
+.post-image {
+    position: relative;
+    width: 45%;
+}
+.post-image:before {
+    content: "";
+    position: absolute;
+    border: 6px solid #021422;
+    top: -20px;
+    bottom: 40%;
+    left: 35%;
+    right: -20px;
+}
+.post h1 {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 0;
+    color: white;
+    top: 50px;
+    right: 0;
+    background: #021422;
+    position: absolute;
+    z-index: 2;
+}
+}
+</style>
+
+<div class="container">
+    <div class="post">
+        <div class="post-header">
+            <div class="post-image">
+                <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage4.jpg">
+            </div>
+            <h1>
+                <p class="card-text"> Название: {{ object.name }}</p>
+                <p class="card-text"> Время начала рассылки: {{ object.start_time }}</p>
+                <p class="card-text"> Время окончания рассылки: {{ object.end_time }}</p>
+                <p class="card-text"> Периодичность: {{ object.frequency }}</p>
+                <p class="card-text"> Клиенты рассылки: {% for client in object.clients.all %} {{ client.name }},
+                    {% endfor %}</p>
+                <p class="card-text"> Сообщение: {{ object.message }}</p>
+                <p class="card-text"> Статус рассылки: {{ object.status }}</p>
+
+                <div class="col-6">
+                    <a href="{% url 'mailings:mailings_list' %}" class="btn btn-sm btn-outline-secondary"
+                       style="margin: 5px;">
+                        Вернуться назад </a>
+            </h1>
         </div>
     </div>
 </div>

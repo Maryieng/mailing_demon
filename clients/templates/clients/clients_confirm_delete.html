@@ -85,18 +85,13 @@ body {
                     {% csrf_token %}
                     <p> Хотите удалить карточку клиента: </p>
                       <p>  "{{ object.name }}"? </p>
-                    <button Type="submit" class="btn btn-success" style="margin: 0px; padding: 0.5em;"> Подтвердить</button>
+                    <button Type="submit" class="btn btn-sm btn-success" style="margin: 1px; width:130px; height:37px;"> Подтвердить</button>
                 </form>
-                <button Type="button" href="{% url 'clients:clients_list' %}" class="btn btn-outline-secondary" style="margin-top: 10px; padding: 0.5em;"> Вернуться
-                    назад </button>
+                <a href="{% url 'clients:clients_list' %}" class="btn btn-outline-secondary" style="margin-top: 10px; padding: 0.5em;"> Вернуться
+                    назад </a>
             </h1>
         </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 
 {% endblock %}
