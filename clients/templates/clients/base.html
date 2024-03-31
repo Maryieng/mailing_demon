@@ -178,11 +178,21 @@
 
 <header data-bs-theme="dark">
     <ul class="menu-main">
-        <li><a href="{% url 'clients:home_page' %}" class="current">Домашняя страница</a></li>
+        <li><a href="{% url 'clients:home_page' %}" >Домашняя страница</a></li>
         <li><a href="{% url 'mailings:mailings_list' %}">Рассылки</a></li>
         <li><a href="{% url 'letters:letters_list' %}">Сообщения</a></li>
         <li><a href="{% url 'clients:clients_list' %}">Клиенты</a></li>
         <li><a href="{% url 'reporting:reporting_list' %}">Отчет о рассылках</a></li>
+        {% if user.is_authenticated %}
+        <a href="{% url 'users:profile' %}"> Профиль </a>
+        <form method="post" action="{% url 'users:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Выйти</button>
+        </form>
+        {% else %}
+        <a href="{% url 'users:login' %}" > Войти </a>
+        <a href="{% url 'users:register' %}" > Регистрация </a>
+        {% endif %}
     </ul>
 </header>
 <main>

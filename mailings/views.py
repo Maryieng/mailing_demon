@@ -1,5 +1,6 @@
 from typing import Any
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import DateTimeInput, ModelForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
@@ -21,6 +22,7 @@ class MailingsForm(ModelForm):
 class MailingsCreateView(CreateView):
     """ Creating mailing settings page """
     model = Mailings
+    login_url = 'users:login'
     form_class = MailingsForm
     success_url = reverse_lazy('mailings:mailings_list')
 
@@ -44,19 +46,21 @@ class MailingsListView(ListView):
         return context
 
 
-class MailingsDeleteView(DeleteView):
+class MailingsDeleteView(LoginRequiredMixin, DeleteView):
     """ Removing mailing settings page """
     model = Mailings
+    login_url = 'users:login'
     success_url = reverse_lazy('mailings:mailings_list')
 
 
-class MailingsUpdateView(UpdateView):
+class MailingsUpdateView(LoginRequiredMixin, UpdateView):
     """ Editing mailing settings page """
     model = Mailings
+    login_url = 'users:login'
     form_class = MailingsForm
     success_url = reverse_lazy('mailings:mailings_list')
 
 
-class MailingsDetailView(DetailView):
+class MailingsDetailView(LoginRequiredMixin, DetailView):
     """ Viewing your mailing settings page """
     model = Mailings

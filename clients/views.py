@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView, UpdateView
 
@@ -9,16 +10,18 @@ class ClientsView(TemplateView):
     template_name = 'clients/home.html'
 
 
-class ClientsCreateView(CreateView):
+class ClientsCreateView(LoginRequiredMixin, CreateView):
     """ Creating clients page """
     model = Clients
+    login_url = 'users:login'
     fields = ('name', 'client_email')
     success_url = reverse_lazy('clients:clients_list')
 
 
-class ClientsUpdateView(UpdateView):
+class ClientsUpdateView(LoginRequiredMixin, UpdateView):
     """ Editing a customer card page """
     model = Clients
+    login_url = 'users:login'
     fields = ('name', 'client_email')
     success_url = reverse_lazy('clients:clients_list')
 
@@ -28,9 +31,10 @@ class ClientsListView(ListView):
     model = Clients
 
 
-class ClientsDeleteView(DeleteView):
+class ClientsDeleteView(LoginRequiredMixin, DeleteView):
     """ Deleting a customer card page """
     model = Clients
+    login_url = 'users:login'
     success_url = reverse_lazy('clients:clients_list')
 
 
