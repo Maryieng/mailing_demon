@@ -120,6 +120,6 @@ _locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 
 
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'mailings:mailings_list'
 LOGOUT_REDIRECT_URL = '/'
 
