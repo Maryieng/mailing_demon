@@ -1,11 +1,10 @@
 import os
 from pathlib import Path
 from typing import Any
-
+import _locale
 from dotenv import load_dotenv
 
 load_dotenv()
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +28,7 @@ INSTALLED_APPS = [
     'letters',
     'reporting',
     'django_apscheduler',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +116,8 @@ EMAIL_HOST_USER = 'kass.o@yandex.ru'
 EMAIL_HOST_PASSWORD = os.getenv('MAIL')
 
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
+
+
+AUTH_USER_MODEL = 'users.User'
+
