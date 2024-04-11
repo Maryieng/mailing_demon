@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
+from letters.forms import MessageForm
 from letters.models import Message
 
 
@@ -9,7 +10,7 @@ class MessageCreateView(CreateView):
     """ Create a message page """
     model = Message
     login_url = 'users:login'
-    fields = ('letter_subject', 'body_letter')
+    form_class = MessageForm
     success_url = reverse_lazy('letters:letters_list')
 
 
@@ -29,7 +30,7 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
     """ Editing a message page """
     model = Message
     login_url = 'users:login'
-    fields = ('letter_subject', 'body_letter')
+    form_class = MessageForm
     success_url = reverse_lazy('letters:letters_list')
 
 

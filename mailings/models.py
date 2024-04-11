@@ -2,6 +2,7 @@ from django.db import models
 
 from clients.models import Clients
 from letters.models import Message
+from users.models import User
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -24,6 +25,7 @@ class Mailings(models.Model):
     status = models.CharField(max_length=15, default=CREATED, verbose_name='Статус рассылки')
     clients = models.ManyToManyField(Clients, verbose_name='Клиенты рассылки')
     message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", **NULLABLE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="пользователь", **NULLABLE)
 
     def __str__(self) -> str:
         return f"Рассылка: {self.name}"

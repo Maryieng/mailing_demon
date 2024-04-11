@@ -5,18 +5,8 @@ from django.forms import DateTimeInput, ModelForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
+from mailings.forms import MailingsForm
 from mailings.models import Mailings
-
-
-class MailingsForm(ModelForm):
-    class Meta:
-        """ Filling out the date and time form via the calendar """
-        model = Mailings
-        fields = ('name', 'start_time', 'end_time', 'frequency', 'clients', 'message', 'status')
-        widgets = {
-            'start_time': DateTimeInput(attrs={'type': 'datetime-local'}),
-            'end_time': DateTimeInput(attrs={'type': 'datetime-local'}),
-        }
 
 
 class MailingsCreateView(CreateView):
