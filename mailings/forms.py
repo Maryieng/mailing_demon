@@ -1,4 +1,3 @@
-from django.forms import BaseInlineFormSet
 from django.forms.fields import BooleanField
 from django.forms import DateTimeInput, ModelForm
 from mailings.models import Mailings
