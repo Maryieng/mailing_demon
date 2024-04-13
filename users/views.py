@@ -1,10 +1,11 @@
 import random
 
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.core.mail import send_mail
-from django.shortcuts import redirect
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, FormView, UpdateView
+from django.shortcuts import redirect, get_object_or_404
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, FormView, UpdateView, ListView
 
 from config import settings
 from users.forms import UserRegisterForm, UserPasswordRecoveryForm, UserProfileForm
@@ -80,3 +81,22 @@ class ProfileView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class ManagerListView(UserPassesTestMixin, ListView):
+    model = User
+    template_name = 'users/manager.html'
+
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.groups.filter(name='moderator').exists()
+
+
+def toggle_activity(request, pk):
+    user_activity = get_object_or_404(User, pk=pk)
+    if user_activity.is_active:
+        user_activity.is_active = False
+    else:
+        user_activity.is_active = True
+    user_activity.save()
+
+    return redirect(reverse('users:manager_list'))

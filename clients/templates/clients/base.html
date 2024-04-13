@@ -13,8 +13,271 @@
     <link href="{% static 'css/album.css' %}" rel="stylesheet">
 
 
-
     <style>
+        .floating-button {
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 5px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+    * {
+box-sizing: border-box;
+margin: 0;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+color: #606060;
+font-size: 14px;
+}
+.container {
+max-width: 960px;
+margin: 150px auto;
+padding: 0 15px;
+background: white;
+}
+.post {
+padding: 30px 0 15px;
+position: relative;
+}
+.post-image {
+margin-bottom: 60px;
+}
+.post-image img {
+width: 100%;
+}
+.post h1 {
+color: #222;
+font-weight: 500;
+margin-bottom: 15px;
+font-size: 1.3em;
+}
+p {
+line-height: 1.5;
+margin-bottom: 1em;
+text-align: justify;
+}
+@media (min-width: 768px) {
+body {
+    font-size: 16px;
+}
+.container {
+    padding: 0 45px;
+}
+.post-header {
+    margin-top: 20px;
+}
+.post-image {
+    position: relative;
+    width: 45%;
+}
+.post-image:before {
+    content: "";
+    position: absolute;
+    border: 6px solid #021422;
+    top: -20px;
+    bottom: 40%;
+    left: 35%;
+    right: -20px;
+}
+.post h1 {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 0;
+    color: white;
+    top: 50px;
+    right: 0;
+    background: #021422;
+    position: absolute;
+    z-index: 2;
+}
+}
+            * {
+box-sizing: border-box;
+margin: 0;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+color: #606060;
+font-size: 14px;
+}
+.container {
+max-width: 960px;
+margin: 150px auto;
+padding: 0 15px;
+background: white;
+}
+.post {
+padding: 30px 0 15px;
+position: relative;
+}
+.post-image {
+margin-bottom: 60px;
+}
+.post-image img {
+width: 100%;
+}
+.post h1 {
+color: #222;
+font-weight: 500;
+margin-bottom: 15px;
+font-size: 1.2em;
+}
+p {
+line-height: 1.4;
+margin-bottom: 1em;
+text-align: justify;
+}
+@media (min-width: 768px) {
+body {
+    font-size: 16px;
+}
+.container {
+    padding: 0 45px;
+}
+.post-header {
+    margin-top: 20px;
+}
+.post-image {
+    position: relative;
+    width: 45%;
+}
+.post-image:before {
+    content: "";
+    position: absolute;
+    border: 6px solid #021422;
+    top: -20px;
+    bottom: 40%;
+    left: 35%;
+    right: -20px;
+}
+.post h1 {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 0;
+    color: white;
+    top: 50px;
+    right: 0;
+    background: #021422;
+    position: absolute;
+    z-index: 2;
+}
+}
+        .double-border-button {
+      text-decoration: none;
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 5px 20px;
+      position: relative;
+      border: 2px solid green;
+      color: green;
+      font-family: 'Montserrat', sans-serif;
+      transition: .4s;
+    }
+    .double-border-button:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      border: 2px solid rgba(0, 0, 0, 0);
+      transition: .4s;
+    }
+    .double-border-button:hover:after {
+      border-color: green;
+      width: calc(100% - 10px);
+      height: calc(100% + 10px);
+    }
+       * {
+       margin: 0;
+       box-sizing: border-box;
+    }
+    .post-wrap {
+       max-width: 1120px;
+       margin: 5 auto;
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
+    }
+    .post-item {
+       padding-top: 35px;
+    }
+    .post-item-wrap {
+       background: #F7F7F2;
+       position: relative;
+    }
+    .post-item-wrap:after {
+       content: "";
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 50%;
+       height: 100%;
+       z-index: -1;
+       background: #C9F2C7;
+       transform: rotate(1deg);
+       transform-origin: left bottom;
+       transition: .3s ease-in-out;
+    }
+    .post-item-wrap:hover:after {
+       top: 5px;
+       left: 5px;
+       transform: rotate(2deg);
+    }
+    .post-link {
+       text-decoration: none;
+       display: block;
+       padding: 30px;
+    }
+    .post-title {
+       color: #33261D;
+       margin-bottom: 15px;
+       transition: .3s ease-in-out;
+       padding: 10px;
+    }
+    .post-content {
+       padding-left: 10px;
+    }
+    .post-item-wrap:hover .post-title {
+       color: #C9F2C7;
+    }
+    .post-content {
+       color: #A69888;
+       font-size: 14px;
+    }
+    @media (min-width: 768px) {
+       .post-item {
+          flex-basis: 50%;
+          flex-shrink: 0;
+       }
+    }
+    @media (min-width: 960px) {
+       .post-item {
+          flex-basis: 33.333333333%;
+       }
+    }
         .bd-placeholder-img {
           font-size: 1.125rem;
           text-anchor: middle;
@@ -144,29 +407,88 @@
   @media(max-width:680px) {
     .menu-main li {display: block;}
   }
-
+.six {
+  background: #F7E2C7;
+  padding: 30px;
+  text-align: center;
+}
+.six h1 {
+  font-weight: normal;
+  font-family: 'Merriweather', serif;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+  color: #F7844E;
+  font-size: 40px;
+  padding: .4em 1em .55em;
+}
+.six h1:before,
+.six h1:after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: .1em;
+  background: #294200;
+}
+.six h1:before {
+  left: 0;
+  top: 0;
+}
+.six h1:after {
+  right: 0;
+  bottom: 0;
+}
+.six h1 span:before,
+.six h1 span:after {
+  content: "";
+  position: absolute;
+  width: .65em;
+  height: .65em;
+  border: .1em solid #294200;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.six h1 span:before {
+  top: -.55em;
+  left: -.325em;
+}
+.six h1 span:after {
+  bottom: -.55em;
+  right: -.325em;
+}
+@media (max-width: 600px) {
+  .six h1 {font-size: 2em;}
+}
+@media (max-width: 450px) {
+  .six h1 {font-size: 1.5em;}
+}
     </style>
 </head>
 <body>
 
 <header data-bs-theme="dark">
     <ul class="menu-main">
-        <li><a href="{% url 'clients:home_page' %}" >Домашняя страница</a></li>
+        <li><a href="{% url 'clients:home_page' %}">Домашняя страница</a></li>
+        {% if user.is_authenticated %}
         <li><a href="{% url 'mailings:mailings_list' %}">Рассылки</a></li>
         <li><a href="{% url 'letters:letters_list' %}">Сообщения</a></li>
         <li><a href="{% url 'clients:clients_list' %}">Клиенты</a></li>
         <li><a href="{% url 'reporting:reporting_list' %}">Отчет о рассылках</a></li>
-        {% if user.is_authenticated %}
-        <a href="{% url 'users:profile' %}"> Профиль </a>
-        <form method="post" action="{% url 'users:logout' %}">
+        {% if user.is_staff%}
+        <li><a href="{% url 'users:manager_list' %}">Менеджер</a></li>
+        {% endif %}
+        <li><a href="{% url 'users:profile' %}"> Профиль </a></li>
+        <li><form method="post" action="{% url 'users:logout' %}">
             {% csrf_token %}
             <button type="submit">Выйти</button>
-        </form>
+        </form></li>
         {% else %}
-        <a href="{% url 'users:login' %}" > Войти </a>
-        <a href="{% url 'users:register' %}" > Регистрация </a>
+        <li><a href="{% url 'users:login' %}"> Войти </a></li>
+        <li><a href="{% url 'users:register' %}"> Регистрация </a></li>
+        </ul>
+        <div class="three" style="margin-top: 50px; margin-bottom: 50px; text-align: center;"><h1> К доступу на сайт необходимо авторизоваться </h1></div>
         {% endif %}
-    </ul>
 </header>
 <main>
 

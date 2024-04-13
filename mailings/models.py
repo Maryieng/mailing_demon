@@ -25,7 +25,8 @@ class Mailings(models.Model):
     status = models.CharField(max_length=15, default=CREATED, verbose_name='Статус рассылки')
     clients = models.ManyToManyField(Clients, verbose_name='Клиенты рассылки')
     message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", **NULLABLE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="пользователь", **NULLABLE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор", **NULLABLE)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return f"Рассылка: {self.name}"

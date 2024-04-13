@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
@@ -6,35 +6,65 @@ from letters.forms import MessageForm
 from letters.models import Message
 
 
-class MessageCreateView(CreateView):
+class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     """ Create a message page """
     model = Message
     login_url = 'users:login'
     form_class = MessageForm
     success_url = reverse_lazy('letters:letters_list')
 
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.owner = self.request.user
+        self.object.save()
+        return super().form_valid(form)
+
+    def test_func(self):
+        return not self.request.user.groups.filter(name='moderator').exists()
+
+
 
 class MessageListView(ListView):
     """ List of all messages page """
     model = Message
 
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+        context_data['message_list'] = Message.objects.all()
+        return context_data
 
-class MessageDeleteView(LoginRequiredMixin, DeleteView):
+    def get_queryset(self, *args, **kwargs):
+        queryset = super().get_queryset(*args, **kwargs)
+        user = self.request.user
+        if user.is_superuser or user.groups.filter(name='moderator').exists():
+            queryset = queryset
+        else:
+            queryset = queryset.filter(owner=self.request.user)
+        return queryset
+
+
+class MessageDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """ Delete a message page """
     model = Message
     login_url = 'users:login'
     success_url = reverse_lazy('letters:letters_list')
 
+    def test_func(self):
+        return not self.request.user.groups.filter(name='moderator').exists()
 
-class MessageUpdateView(LoginRequiredMixin, UpdateView):
+
+class MessageUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """ Editing a message page """
     model = Message
     login_url = 'users:login'
     form_class = MessageForm
     success_url = reverse_lazy('letters:letters_list')
 
+    def test_func(self):
+        return not self.request.user.groups.filter(name='moderator').exists()
 
-class MessageDetailView(LoginRequiredMixin, DetailView):
+
+
+class MessageDetailView(DetailView):
     """ View message page """
     model = Message
-    login_url = 'users:login'

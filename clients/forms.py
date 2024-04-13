@@ -8,4 +8,4 @@ class ClientsForm(StyleFormMixin, ModelForm):
 
     class Meta:
         model = Clients
-        fields = '__all__'
+        exclude = ('owner',)

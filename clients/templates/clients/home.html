@@ -125,10 +125,14 @@
     </div>
   </header>
 
-  <div class="three"><h1>Email‑рассылки</h1></h1></div>
+  <div class="three"><h1>Email‑рассылки</h1></div>
     <p class="lead">Увеличивайте прибыль с email‑рассылок с помощью мощного сочетания удобного конструктора, гибкой сегментации и сквозной аналитики</p>
     <p class="lead">
-      <a href="{% url 'clients:clients_list' %}" class="btn">Попробовать</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'mailings:mailings_list' %}" class="btn">Попробовать</a>
+      {% else %}
+      <a href="{% url 'users:login' %}" class="btn">Попробовать</a>
+      {% endif %}
     </p>
     </div>
 

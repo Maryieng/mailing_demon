@@ -19,7 +19,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
     def __str__(self) -> str:
-        return f"{self.email}, {self.phone}"
+        return f"{self.email}"
 
     class Meta:
         verbose_name = 'Пользователь'

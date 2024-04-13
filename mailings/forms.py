@@ -1,5 +1,8 @@
 from django.forms.fields import BooleanField
 from django.forms import DateTimeInput, ModelForm
+
+from clients.models import Clients
+from letters.models import Message
 from mailings.models import Mailings
 
 
@@ -15,10 +18,12 @@ class StyleFormMixin:
 
 
 class MailingsForm(StyleFormMixin, ModelForm):
+
+
     class Meta:
         """ Filling out the date and time form via the calendar """
         model = Mailings
-        fields = ('name', 'start_time', 'end_time', 'frequency', 'clients', 'message', 'status')
+        exclude = ('is_active', 'owner',)
         widgets = {
             'start_time': DateTimeInput(attrs={'type': 'datetime-local'}),
             'end_time': DateTimeInput(attrs={'type': 'datetime-local'}),
