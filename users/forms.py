@@ -19,7 +19,7 @@ class UserPasswordRecoveryForm(StyleFormMixin, PasswordResetForm):
         fields = ('email',)
 
 
-class UserProfileForm(UserChangeForm):
+class UserProfileForm(StyleFormMixin, UserChangeForm):
 
     class Meta:
         model = User
