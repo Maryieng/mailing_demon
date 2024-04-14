@@ -10,6 +10,7 @@ urlpatterns = [
     path('letters/', include('letters.urls', namespace='letters')),
     path('reporting/', include('reporting.urls', namespace='reporting')),
     path('users/', include('users.urls', namespace='users')),
+    path('blog/', include('blog.urls', namespace='blog')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

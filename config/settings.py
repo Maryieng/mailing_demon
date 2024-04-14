@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'reporting',
     'django_apscheduler',
     'users',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,12 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = 'mailings:mailings_list'
 LOGOUT_REDIRECT_URL = '/'
 
+CACHES_ENABLED = os.getenv('CACHES_ENABLED') == 'True'
+
+if CACHES_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": os.getenv('CACHES_LOCATION'),
+        }
+    }
