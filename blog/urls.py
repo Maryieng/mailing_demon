@@ -1,7 +1,6 @@
 from django.urls import path
 from django.views.decorators.cache import cache_page
 
-import blog
 from blog.views import BlogDetailView, BlogListView
 
 app_name = 'blog'
