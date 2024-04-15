@@ -1,14 +1,15 @@
-from django.forms.fields import BooleanField
-from django.forms import DateTimeInput, ModelForm
+from typing import Any
 
-from clients.models import Clients
-from letters.models import Message
+from django.forms import DateTimeInput, ModelForm
+from django.forms.fields import BooleanField
+
 from mailings.models import Mailings
 
 
 class StyleFormMixin:
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """ uniform style of form fields """
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             if isinstance(field, BooleanField):
@@ -18,7 +19,6 @@ class StyleFormMixin:
 
 
 class MailingsForm(StyleFormMixin, ModelForm):
-
 
     class Meta:
         """ Filling out the date and time form via the calendar """

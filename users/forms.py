@@ -1,9 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm, PasswordResetForm, UserChangeForm
+from typing import Any
+
 from django import forms
+from django.contrib.auth.forms import PasswordResetForm, UserChangeForm, UserCreationForm
 
 from mailings.forms import StyleFormMixin
 from users.models import User
-
 
 
 class UserRegisterForm(UserCreationForm):
@@ -22,10 +23,11 @@ class UserPasswordRecoveryForm(StyleFormMixin, PasswordResetForm):
 class UserProfileForm(StyleFormMixin, UserChangeForm):
 
     class Meta:
+        """ form to create """
         model = User
         fields = ('email', 'phone', 'avatar', 'country')
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
 
         self.fields['password'].widget = forms.HiddenInput()

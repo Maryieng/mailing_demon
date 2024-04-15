@@ -19,7 +19,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('time_log', models.DateTimeField(auto_now_add=True, verbose_name='Дата и время последней попытки')),
                 ('status', models.BooleanField(verbose_name='Статус попытки')),
-                ('mailings', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='mailings.mailings', verbose_name='Рассылка')),
+                ('mailings', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
+                                               to='mailings.mailings', verbose_name='Рассылка')),
             ],
             options={
                 'verbose_name': 'Лог',

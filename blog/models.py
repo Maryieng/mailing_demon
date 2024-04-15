@@ -1,6 +1,5 @@
 from django.db import models
 
-
 NULLABLE = {'blank': True, 'null': True}
 
 
@@ -11,7 +10,7 @@ class Blog(models.Model):
     count_views = models.IntegerField(default=0, verbose_name='Количество просмотров')
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата публикации')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.title}'
 
     class Meta:

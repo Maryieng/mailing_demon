@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from typing import Any
+
 import _locale
 from dotenv import load_dotenv
 

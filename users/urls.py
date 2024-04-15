@@ -2,8 +2,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 from users.apps import UsersConfig
-from users.views import RegisterView, UserPasswordRecoveryView, ProfileView, activate_user, toggle_activity, \
-    ManagerListView
+from users.views import (ManagerListView, ProfileView, RegisterView, UserPasswordRecoveryView, activate_user,
+                         toggle_activity)
 
 app_name = UsersConfig.name
 
@@ -16,5 +16,4 @@ urlpatterns = [
     path('profile/', ProfileView.as_view(), name='profile'),
     path('verify/', activate_user),
     path('manager/', ManagerListView.as_view(), name='manager_list'),
-    path('activity/<int:pk>/', toggle_activity, name='manager')
-    ]
+    path('activity/<int:pk>/', toggle_activity, name='manager')]

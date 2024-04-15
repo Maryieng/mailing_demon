@@ -1,7 +1,6 @@
-from django_apscheduler import util
-
 from apscheduler.jobstores.base import ConflictingIdError
 from apscheduler.schedulers.background import BackgroundScheduler
+from django_apscheduler import util
 
 from mailings.services import send_mailings
 

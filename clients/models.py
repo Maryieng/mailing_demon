@@ -2,7 +2,6 @@ from django.db import models
 
 from users.models import User
 
-
 NULLABLE = {'blank': True, 'null': True}
 
 

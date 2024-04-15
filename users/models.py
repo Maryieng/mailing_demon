@@ -1,8 +1,9 @@
+from typing import List
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 NULLABLE = {'blank': True, 'null': True}
-
 
 
 class User(AbstractUser):
@@ -16,8 +17,7 @@ class User(AbstractUser):
     token = models.CharField(max_length=10, verbose_name='Верификация', **NULLABLE)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
-
+    REQUIRED_FIELDS: List[str] = []
     def __str__(self) -> str:
         return f"{self.email}"
 
