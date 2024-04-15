@@ -1,143 +1,144 @@
 {% load static %}
-
 <!doctype html>
 <html lang="ru" class=" h-100" data-bs-theme="auto">
-  <head>
-
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="canonical" href="https://bootstrap-4.ru/docs/5.3/examples/cover/">
-
-	<!-- Bootstrap core CSS -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://bootstrap-4.ru/docs/5.3/examples/cover/">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/album.css' %}" rel="stylesheet">
     <style>
-.three {
-  background: #FCF2E5;
-  padding: 100px 40px;
-  text-align: center;
-  margin-top: 240px;
-}
-.three h1 {
-  font-family: 'Merriweather', serif;
-  position: relative;
-  color: #FCF2E5;
-  background: #90806A;
-  font-size: 2.5em;
-  font-weight: normal;
-  padding: 10px 40px;
-  display: inline-block;
-  margin: 0;
-  line-height: 1;
-}
-.three h1:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  left: 0;
-  bottom: -15px;
-  background: #90806A;
-}
-.three h1:after {
-  content: "";
-  position: absolute;
-  height: 0;
-  width: 80%;
-  border-top: 10px solid #90806A;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -25px;
-}
-@media (max-width: 500px) {
-  .three h1 {font-size: 1.8em;}
-}
-@media (max-width: 400px) {
-  .three h1 {
-    font-size: 1.5em;
-    padding: 10px 30px;
-  }
-}
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-}
-.btn {
-   position: relative;
-   overflow: hidden;
-   z-index: 1;
-   padding: 10px 40px;
-   margin: 0 20px;
-   font-family: 'Montserrat Alternates', sans-serif;
-   font-weight: 600;
-   line-height: 30px;
-   color: white;
-   font-size: 15px;
-   text-transform: uppercase;
-   background: #90806A;
-   border-width: 0;
-   box-shadow: 5px 5px 0 #532831;
-   outline: none;
-   cursor: pointer;
-   transition: 1.5s;
-    margin-top: 40px;
-}
-.btn:before, .btn:after {
-   content: "";
-   position: absolute;
-   height: 200px;
-   left: -50%;
-   margin-top: -100px;
-   top: 50%;
-   width: 200px;
-   border-radius: 50%;
-   opacity: 0.3;
-   z-index: -1;
-   transform: scale(0);
-}
-.btn:before {
-   background: #ffeede;
-   transition: .8s ease-out;
-}
-.btn:after {
-   transition: .4s ease-in .3s;
-}
-.btn:hover {
-   color: #532831;
-}
-.btn:hover:before, .btn:hover:after {
-   opacity: 1;
-   transform: scale(4);
-}
+        .three {
+          background: #FCF2E5;
+          padding: 50px 40px;
+          text-align: center;
+          margin-top: 10px;
+        }
+        .three h1 {
+          font-family: 'Merriweather', serif;
+          position: relative;
+          color: #FCF2E5;
+          background: #90806A;
+          font-size: 2.5em;
+          font-weight: normal;
+          padding: 10px 40px;
+          display: inline-block;
+          margin: 0;
+          line-height: 1;}
+
+        .three h1:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 4px;
+          left: 0;
+          bottom: -15px;
+          background: #90806A;
+        }
+        .three h1:after {
+          content: "";
+          position: absolute;
+          height: 0;
+          width: 80%;
+          border-top: 10px solid #90806A;
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -25px;
+        }
+        @media (max-width: 500px) {
+          .three h1 {font-size: 1.8em;}
+        }
+        @media (max-width: 400px) {
+          .three h1 {
+            font-size: 1.5em;
+            padding: 10px 30px;
+          }
+        }
+        .footer {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 80px;
+        }
+        .btn {
+           position: relative;
+           overflow: hidden;
+           z-index: 1;
+           padding: 10px 40px;
+           margin: 0 10px;
+           font-family: 'Montserrat Alternates', sans-serif;
+           font-weight: 600;
+           line-height: 30px;
+           color: white;
+           font-size: 15px;
+           text-transform: uppercase;
+           background: #90806A;
+           border-width: 0;
+           box-shadow: 5px 5px 0 #532831;
+           outline: none;
+           cursor: pointer;
+           transition: 1.5s;
+            margin-top: 20px;
+        }
+        .btn:before, .btn:after {
+           content: "";
+           position: absolute;
+           height: 200px;
+           left: -50%;
+           margin-top: -100px;
+           top: 50%;
+           width: 200px;
+           border-radius: 50%;
+           opacity: 0.3;
+           z-index: -1;
+           transform: scale(0);
+        }
+        .btn:before {
+           background: #ffeede;
+           transition: .8s ease-out;
+        }
+        .btn:after {
+           transition: .4s ease-in .3s;
+        }
+        .btn:hover {
+           color: #532831;
+        }
+        .btn:hover:before, .btn:hover:after {
+           opacity: 1;
+           transform: scale(4);
+        }
     </style>
-
-  </head>
-  <body class="text-center text-bg-dark">
+</head>
+<body class="text-center text-bg-dark">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-    </div>
-  </header>
-
-  <div class="three"><h1>Email‑рассылки</h1></div>
-    <p class="lead">Увеличивайте прибыль с email‑рассылок с помощью мощного сочетания удобного конструктора, гибкой сегментации и сквозной аналитики</p>
+    <header class="mb-auto">
+        <div>
+        </div>
+    </header>
+    <div class="three"><h1>Статистика сервиса</h1></div>
+    <p class="lead">Количество рассылок всего: {{mailings_count}}</p>
+    <p class="lead">Количество активных рассылок: {{active_mailings_count}}</p>
+    <p class="lead">Количество уникальных клиентов для рассылок: {{clients_count}}</p>
     <p class="lead">
-      {% if user.is_authenticated %}
-      <a href="{% url 'mailings:mailings_list' %}" class="btn">Попробовать</a>
-      {% else %}
-      <a href="{% url 'users:login' %}" class="btn">Попробовать</a>
-      {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'mailings:mailings_list' %}" class="btn">Попробовать</a>
+        {% else %}
+        <a href="{% url 'users:login' %}" class="btn">Попробовать</a>
+        {% endif %}
     </p>
+    <div class="three" style="margin-top: 40px;">
+        <div class="row">
+            {% for object in object_list %}
+            <div class="col-lg-4">
+                <h2 style="font-family: 'Merriweather', serif; color: black"> {{object|title}}</h2>
+                <p style="color: #FCF2E5;"> {{object.content|slice:300}}...</p>
+                <p><a class="btn" href="{% url 'blog:view' object.pk %}">Подробнее </a></p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-
-  <footer class="mt-auto text-white-50">
-    <small class="d-block mb-3 text-muted">&copy; 2024</small>
-  </footer>
-  </body>
+</body>
 </html>

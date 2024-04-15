@@ -1,0 +1,52 @@
+[
+  {
+    "model": "clients.clients",
+    "pk": 1,
+    "fields": {
+      "name": "Иван Сидорович Иванов",
+      "client_email": "kass.o@yandex.ru",
+      "comment": "",
+      "owner": null
+    }
+  },
+  {
+    "model": "clients.clients",
+    "pk": 2,
+    "fields": {
+      "name": "Никонова Анна Федоровна",
+      "client_email": "test.mashenka@yandex.ru",
+      "comment": "какое то описание клиента",
+      "owner": 3
+    }
+  },
+  {
+    "model": "clients.clients",
+    "pk": 8,
+    "fields": {
+      "name": "Шебарина Ольга Александровна",
+      "client_email": "kass.o@yandex.ruu",
+      "comment": "Очередное какое то описание клиента",
+      "owner": 2
+    }
+  },
+  {
+    "model": "clients.clients",
+    "pk": 9,
+    "fields": {
+      "name": "Меньшиков Сергей Николаевич",
+      "client_email": "kass.o@yandex.ru",
+      "comment": "Что то о клиенте",
+      "owner": 2
+    }
+  },
+  {
+    "model": "clients.clients",
+    "pk": 10,
+    "fields": {
+      "name": "Авдеев Олег Олегович",
+      "client_email": "test.mashenka@yandex.ru",
+      "comment": "Мне лень что то придумывать",
+      "owner": 2
+    }
+  }
+]

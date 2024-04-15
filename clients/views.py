@@ -1,14 +1,29 @@
+import random
+
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView, UpdateView
 
+from blog.models import Blog
 from clients.forms import ClientsForm
 from clients.models import Clients
+from mailings.models import Mailings
 
 
-class ClientsView(TemplateView):
+class HomeView(TemplateView):
     """ Introductory page """
     template_name = 'clients/home.html'
+    extra_context = {
+        'title': 'Главная',
+    }
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['mailings_count'] = len(Mailings.objects.all())
+        context_data['active_mailings_count'] = len(Mailings.objects.filter(is_active=True))
+        context_data['clients_count'] = len(Clients.objects.all())
+        context_data['object_list'] = random.sample(list(Blog.objects.all()), 3)
+        return context_data
 
 
 class ClientsCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):

@@ -8,12 +8,12 @@
 {% endif %}
 {% for object in object_list %}
 <div class="post-item">
-    <h3 class="post-title"> Имя: {{ object.name }} </h3>
+    <h3 class="post-title"> {{ object.name }} </h3>
     <p class="post-content"> Автор: {{ object.owner }} </p>
     <p class="post-content"> Время старта рассылки: {{ object.start_time }} </p>
     <p class="post-content"> Время окончания рассылки: {{ object.end_time }} </p>
     <p class="post-content"> Периодичность рассылки: {{ object.custom_frequency }} </p>
-    <p class="post-content"> Получатели рассылки: {% for client in object.clients.all %} {{ client.name }},
+    <p class="post-content"> Получатели: {% for client in object.clients.all %} {{ client.name }},
         {% endfor %} </p>
 
     <p class="post-content"> Тема письма: {{ object.message }}</p>

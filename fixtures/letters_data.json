@@ -1,0 +1,38 @@
+[
+  {
+    "model": "letters.message",
+    "pk": 1,
+    "fields": {
+      "letter_subject": "новое письмо",
+      "body_letter": "тело нового письма для проверки",
+      "owner": null
+    }
+  },
+  {
+    "model": "letters.message",
+    "pk": 8,
+    "fields": {
+      "letter_subject": "спам распродажи",
+      "body_letter": "распродажа всего, успей купить",
+      "owner": 2
+    }
+  },
+  {
+    "model": "letters.message",
+    "pk": 9,
+    "fields": {
+      "letter_subject": "услуги риэлтора",
+      "body_letter": "продадим даже воздух, только заключите с нами договор",
+      "owner": 2
+    }
+  },
+  {
+    "model": "letters.message",
+    "pk": 10,
+    "fields": {
+      "letter_subject": "Путешествуй с душой",
+      "body_letter": "какие-нибудь очередные супер горящие путевки",
+      "owner": 2
+    }
+  }
+]

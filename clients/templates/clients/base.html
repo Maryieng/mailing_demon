@@ -25,6 +25,7 @@
         <li><a href="{% url 'letters:letters_list' %}">Сообщения</a></li>
         <li><a href="{% url 'clients:clients_list' %}">Клиенты</a></li>
         <li><a href="{% url 'reporting:reporting_list' %}">Отчет о рассылках</a></li>
+        <li><a href="{% url 'blog:list' %}">Блог</a></li>
         {% if user.is_staff%}
         <li><a href="{% url 'users:manager_list' %}">Менеджер</a></li>
         {% endif %}
