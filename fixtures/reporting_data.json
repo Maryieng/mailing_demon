@@ -1,0 +1,74 @@
+[
+  {
+    "model": "reporting.reporting",
+    "pk": 1,
+    "fields": {
+      "time_log": "2024-03-31T13:37:47.858Z",
+      "status": true,
+      "mailings": 1
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 7,
+    "fields": {
+      "time_log": "2024-04-12T17:24:19.947Z",
+      "status": true,
+      "mailings": 5
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 14,
+    "fields": {
+      "time_log": "2024-04-15T10:11:25.228Z",
+      "status": true,
+      "mailings": 12
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 15,
+    "fields": {
+      "time_log": "2024-04-15T10:11:25.590Z",
+      "status": true,
+      "mailings": 12
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 16,
+    "fields": {
+      "time_log": "2024-04-15T10:14:55.241Z",
+      "status": true,
+      "mailings": 13
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 17,
+    "fields": {
+      "time_log": "2024-04-15T10:14:55.476Z",
+      "status": true,
+      "mailings": 13
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 18,
+    "fields": {
+      "time_log": "2024-04-15T10:15:45.161Z",
+      "status": true,
+      "mailings": 14
+    }
+  },
+  {
+    "model": "reporting.reporting",
+    "pk": 19,
+    "fields": {
+      "time_log": "2024-04-15T10:15:45.540Z",
+      "status": true,
+      "mailings": 14
+    }
+  }
+]

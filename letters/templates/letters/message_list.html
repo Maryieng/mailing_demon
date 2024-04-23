@@ -1,0 +1,33 @@
+{% extends 'clients/base.html' %}
+
+{% block content %}
+
+ {% if not user.is_staff%}
+<div class="col-12" style="margin-top: 60px; margin-left: 20px;">
+    <a class="double-border-button" href="{% url 'letters:create_letters' %}"> Добавить сообщение </a>
+</div>
+    {% endif %}
+        {% for object in object_list %}
+<div class="post-item">
+    <div class="post-item-wrap">
+        <h3 class="post-title"> Тема: {{ object.letter_subject }} </h3>
+        <p class="post-content"> Содержание: {{ object.body_letter }} </p>
+        <p class="post-content"> Автор: {{ object.owner }} </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a href="{% url 'letters:view_letters' object.pk %}" class="double-border-button"
+                   style="margin-right: 15px;">
+                    Подробнее </a>
+                {% if not user.is_staff%}
+                <a href="{% url 'letters:letters_update' object.pk %}" class="double-border-button"
+                   style="margin-right: 15px;">
+                    Редактировать </a>
+                <a href="{% url 'letters:delete_letters' object.pk %}" class="double-border-button">
+                    Удалить </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

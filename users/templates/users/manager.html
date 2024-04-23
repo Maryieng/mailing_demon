@@ -1,0 +1,26 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+
+<div class="col-12 mt-3">
+    {% for object in object_list %}
+    <div class="post-item">
+        <div class="post-item-wrap">
+            <h3 class="post-title"> Пользователь </h3>
+            <p class="post-content"> Логин: {{ object.email }} </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mb-3">
+                    {% if object.is_active %}
+                    <a href="{% url 'users:manager' object.pk %}" class="w-120 btn btn-lg btn-outline-danger">
+                        Заблокировать </a>
+                    {% else %}
+                    <a href="{% url 'users:manager' object.pk %}" class="w-120 btn btn-lg btn-outline-success">
+                        Разблокировать </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'clients/base.html' %}
+
+{% block content %}
+
+<div class="col-12" style="margin-top: 60px; margin-left: 20px;">
+    <div class="six"><h1><span> Отчет произведенных рассылок </span></h1></div>
+</div>
+{% for object in object_list %}
+<div class="post-item">
+    <div class="post-item-wrap">
+        <h3 class="post-title"> Время лога: {{ object.time_log }} </h3>
+        <p class="post-content"> Статус попытки: {{ object.status_display }} </p>
+        <p class="post-content"> {{ object.mailings }} </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

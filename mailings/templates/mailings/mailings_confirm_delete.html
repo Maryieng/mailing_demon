@@ -1,0 +1,23 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="post">
+        <div class="post-header">
+            <div class="post-image">
+                <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage4.jpg">
+            </div>
+            <h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <p> Хотите удалить рассылку: "{{ object.name }}"? </p>
+                    <button Type="submit" class="btn btn-sm btn-success" style="margin: 5px; width:120px;"> Подтвердить</button>
+                </form>
+        <a href="{% url 'mailings:mailings_list' %}" class="btn btn-sm btn-outline-secondary" style="margin: 5px;">
+            Вернуться назад </a>
+        </h1>
+    </div>
+</div>
+</div>
+
+{% endblock %}

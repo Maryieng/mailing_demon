@@ -1,0 +1,28 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="post">
+        <div class="post-header">
+            <div class="post-image">
+                <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage4.jpg">
+            </div>
+            <h1>
+                <p class="card-text"> Название: {{ object.name }}</p>
+                <p class="card-text"> Время начала рассылки: {{ object.start_time }}</p>
+                <p class="card-text"> Время окончания рассылки: {{ object.end_time }}</p>
+                <p class="card-text"> Периодичность: {{ object.frequency }}</p>
+                <p class="card-text"> Клиенты рассылки: {% for client in object.clients.all %} {{ client.name }},
+                    {% endfor %}</p>
+                <p class="card-text"> Сообщение: {{ object.message }}</p>
+                <p class="card-text"> Статус рассылки: {{ object.status }}</p>
+
+                <div class="col-6">
+                    <a href="{% url 'mailings:mailings_list' %}" class="btn btn-sm btn-outline-secondary"
+                       style="margin: 5px;">
+                        Вернуться назад </a>
+            </h1>
+        </div>
+    </div>
+</div>
+{% endblock %}

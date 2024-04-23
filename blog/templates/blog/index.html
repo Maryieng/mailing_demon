@@ -1,0 +1,27 @@
+{% extends 'clients/base.html' %}
+{% load tag %}
+{% block content %}
+
+<div class="col-12" style="margin-top: 60px; margin-left: 20px;">
+    <div class="six"><h1><span> Новостной блог </span></h1></div>
+</div>
+{% for object in object_list %}
+<div class="post-item">
+    <div class="post-item-wrap">
+        <img class="card-img-top mx-auto d-block" src="{{ object.preview | mymedia }}" style="width: 700px; height: 1200;">
+        <div class="col-12 text-center">
+        <h3 class="post-title"> {{ object.title }} </h3>
+            </div>
+        <p class="post-content"> {{ object.content|slice:300}}... </p>
+        <p class="post-content"> Количество просмотров: {{ object.count_views }} </p>
+        <p class="post-content"> Дата публикации : {{ object.created_at }} </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a href="{% url 'blog:view' object.pk %}" class="double-border-button" style="margin-right: 15px;">
+                    Читать далее </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

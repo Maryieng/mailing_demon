@@ -1,0 +1,20 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="post">
+        <div class="post-header">
+            <div class="post-image">
+                <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage4.jpg">
+            </div>
+            <h1>
+                <p class="card-text"> Тема письма: {{ object.letter_subject }}</p>
+                <p class="card-text"> Текст сообщения: {{ object.body_letter }}</p>
+                <a href="{% url 'letters:letters_list' %}" class="btn btn-sm btn-outline-secondary"> Вернуться
+                    назад </a>
+            </h1>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

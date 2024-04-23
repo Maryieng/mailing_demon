@@ -1,0 +1,90 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$XdL1att6BqLL0CSbvDYKSf$MUkfGDxN1FIAWhhvdH18qukMFniH67Iv8LX+vdW7Wqw=",
+      "last_login": "2024-04-15T10:09:52.280Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-03-31T17:00:54Z",
+      "email": "kass.o@yandex.ru",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": null,
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$EJSo4oPkvF9nYDzYqZMByi$tTJfegWFSHLQ6OcAMcKllhO5Y4bVYx2AVtacGdkBpfI=",
+      "last_login": "2024-04-15T10:10:09.755Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "Sky",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-11T12:49:48Z",
+      "email": "kassion.o@yandex.ru",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$16qCLMxhhqFSFGTbJfusr1$Hfh34UGV35AtwXv2dpqTe0lqxJMhJbqceO95BMd/KRM=",
+      "last_login": "2024-04-15T07:16:35.764Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-12T16:55:36.998Z",
+      "email": "test.mashenka@yandex.ru",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$DtpRc0IXx5xln4fj6teYJ8$g4qDnAyvGFuagu1mLSrjKJZ1VnZtczLLNYB6V/xSCNM=",
+      "last_login": "2024-04-15T07:18:11Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "Sky",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-04-15T07:18:00Z",
+      "email": "kassionio.o@yandex.ru",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": null,
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  }
+]

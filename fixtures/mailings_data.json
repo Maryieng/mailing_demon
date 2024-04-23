@@ -1,0 +1,95 @@
+[
+  {
+    "model": "mailings.mailings",
+    "pk": 1,
+    "fields": {
+      "name": "тест",
+      "start_time": "2024-04-01T13:37:47.296Z",
+      "end_time": "2024-04-01T13:03:00Z",
+      "frequency": "daily",
+      "status": "Завершена",
+      "message": 1,
+      "owner": null,
+      "is_active": false,
+      "clients": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailings.mailings",
+    "pk": 5,
+    "fields": {
+      "name": "тест 1",
+      "start_time": "2024-04-13T17:24:19.357Z",
+      "end_time": "2024-04-12T17:26:00Z",
+      "frequency": "daily",
+      "status": "Завершена",
+      "message": 1,
+      "owner": null,
+      "is_active": true,
+      "clients": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailings.mailings",
+    "pk": 12,
+    "fields": {
+      "name": "SMS‑таргетинг",
+      "start_time": "2024-04-16T10:11:25.125Z",
+      "end_time": "2024-04-18T10:11:00Z",
+      "frequency": "daily",
+      "status": "Запущена",
+      "message": 8,
+      "owner": 2,
+      "is_active": true,
+      "clients": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailings.mailings",
+    "pk": 13,
+    "fields": {
+      "name": "Рассылка для бизнеса",
+      "start_time": "2024-04-22T10:14:55.116Z",
+      "end_time": "2024-06-02T10:14:00Z",
+      "frequency": "weekly",
+      "status": "Запущена",
+      "message": 9,
+      "owner": 2,
+      "is_active": true,
+      "clients": [
+        1,
+        8,
+        10
+      ]
+    }
+  },
+  {
+    "model": "mailings.mailings",
+    "pk": 14,
+    "fields": {
+      "name": "Почему Telegram-рассылка через МТС Маркетолога — это выгодно",
+      "start_time": "2024-05-15T10:15:45.116Z",
+      "end_time": "2024-08-01T10:15:00Z",
+      "frequency": "monthly",
+      "status": "Запущена",
+      "message": 10,
+      "owner": 2,
+      "is_active": true,
+      "clients": [
+        1,
+        2,
+        8,
+        9,
+        10
+      ]
+    }
+  }
+]

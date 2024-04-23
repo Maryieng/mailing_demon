@@ -1,15 +1,61 @@
-django-admin startproject config .[tool.poetry]
+[tool.poetry]
 name = "mailing-demon"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["т"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+apscheduler = "^3.10.4"
+load-dotenv = "^0.1.0"
 django = "^5.0.3"
+django-apscheduler = "^0.6.2"
+psycopg2 = "^2.9.9"
+python-dateutil = "^2.9.0.post0"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+mypy = "^1.9.0"
+black = "^24.3.0"
+types-python-dateutil = "^2.9.0.20240316"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+ignore_missing_imports = true
+exclude = 'venv'
+
+
+[tool.isort]
+line_length = 119
+
+
+[tool.black]
+# максимальная длина строки
+line-length = 119
+# файлы, которые не нужно форматировать
+exclude = '''
+(
+  /(
+      \.eggs
+      \.html
+    | \.git
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | templates
+    | migrations
+    | static
+  )/
+  | foo.py
+)
+'''
